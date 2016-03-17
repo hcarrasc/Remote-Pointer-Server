@@ -3,4 +3,29 @@
   <groupId>Remote-Pointer-Server</groupId>
   <artifactId>Remote-Pointer-Server</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <organization>
+      <name>hcarrasco</name>
+      <url>hcarrasco.cl</url>
+  </organization>
+  
+  <dependencies>
+      <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+      </dependency>
+      <dependency>
+            <groupId>log4j</groupId>
+	        <artifactId>log4j</artifactId>
+	        <version>1.2.17</version>
+      </dependency>
+      <dependency>
+	        <groupId>io.netty</groupId>
+	        <artifactId>netty-all</artifactId>
+	        <version>4.0.33.Final</version>
+      </dependency>
+   </dependencies>
+   
 </project>
