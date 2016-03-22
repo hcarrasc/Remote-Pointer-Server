@@ -34,8 +34,8 @@ public class ServerSetup implements Runnable{
             .childHandler(new ChannelInitializer<SocketChannel>() { 
             	
                 public void initChannel(SocketChannel ch) throws Exception {
-                	logger.info("New Channel inbound "+ch.toString()+" .");
                 	
+                	logger.info("New Channel inbound "+ch.toString()+" .");
            	        byte[] HEX = {Byte.valueOf(String.valueOf(Integer.parseInt("3C", 16)))};
            	        ByteBuf delimiter = Unpooled.copiedBuffer(HEX);
                     ch.pipeline().addLast(new DelimiterBasedFrameDecoder(65*1024, delimiter));
@@ -61,7 +61,6 @@ public class ServerSetup implements Runnable{
 		workerGroup.shutdownGracefully();
         bossGroup.shutdownGracefully();
         logger.info("TCP Server stoped.");
-        System.out.println("Server killed.-");
 	}
 	
 	public String getServerStatusFlag() {
@@ -78,7 +77,5 @@ public class ServerSetup implements Runnable{
 	public void setPort(int port) {
 		this.port = port;
 	}
-	
-	
 	
 }

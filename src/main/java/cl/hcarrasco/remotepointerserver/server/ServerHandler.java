@@ -24,7 +24,6 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-		
 		int maxBufferMessage = 250;
         ByteBuf in = (ByteBuf) msg;
         byte[] data = new byte[maxBufferMessage];
@@ -38,11 +37,10 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
         	logger.info("Error reading the message : "+e.getMessage());
         }
         finally { ReferenceCountUtil.release(msg); }
+        
         String msgFromDevice = new String (data);
         msgFromDevice = msgFromDevice.trim();
-        
         logger.info("New message received: "+msgFromDevice);
-        
         MessageActions messageActions = new MessageActions();
         messageActions.hubMessages(msgFromDevice);
         
